@@ -52,7 +52,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         
 
         <Card className='w-[275px] padding-left'>
-          <Separator className='my-4' />
+          {/* <Separator className='my-4' /> */}
           <div className='icon-main flex h-5 items-center space-x-4 text-sm'>
             <div className='icon-show'>
               <EmailIcon sx={{ width: 20, height: 20 }} />

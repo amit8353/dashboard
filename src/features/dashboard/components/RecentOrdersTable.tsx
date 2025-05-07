@@ -9,6 +9,7 @@ import {
     TableRow,
   } from "@/components/ui/table"
   import ShoppingBagIcon from "@mui/icons-material/ShoppingBag"
+  import mobile from "../../../assets/mobile.png"
 
   const orders = [
     {
@@ -59,13 +60,13 @@ import {
             <TableRow key={order.orderId}>
               <TableCell className="font-medium">{order.orderId}</TableCell>
               <TableCell>
-              <ShoppingBagIcon fontSize="large" className="text-gray-600" />
+              {/* <ShoppingBagIcon fontSize="large" className="text-gray-600" /> */}
 
-                {/* <img
-                  src={order.productImage}
+                <img
+                  src={mobile}
                   alt="Product"
                   className="w-10 h-10 rounded-md"
-                /> */}
+                />
               </TableCell>
               <TableCell>{order.customer}</TableCell>
               <TableCell>{order.channel}</TableCell>

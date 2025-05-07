@@ -254,3 +254,28 @@ button#framework {
   display: flex;
   gap: 10px;
 }
+.topselling-pro{
+  display: flex;
+  justify-content: space-between;
+}
+.busness-style span{
+  font-family: Inter;
+font-weight: 500;
+font-size: 8px;
+line-height: 15px;
+letter-spacing: 0%;
+text-transform: uppercase;
+color: #E48D21;
+
+}
+.busness-style span{
+  width: 66;
+height: 19;
+border-radius: 99px;
+gap: 8px;
+padding-top: 2px;
+padding-right: 8px;
+padding-bottom: 2px;
+padding-left: 8px;
+
+}

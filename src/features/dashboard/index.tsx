@@ -40,11 +40,12 @@ import RetIcon from '../../assets/return.png'
 import RevIcon from '../../assets/rev.png'
 import TokenIconf from '../../assets/token-f.png'
 import TokenIcon from '../../assets/token.png'
+import { TableDemo } from './components/DataTsblecom'
 import { PiChartComponents } from './components/PiChartscomp'
+import { RecentOrdersTable } from './components/RecentOrdersTable'
+import { TopSellingPro } from './components/TopSellingPro'
 import { Overview } from './components/overview'
 import { RecentSales } from './components/recent-sales'
-import { TableDemo } from './components/DataTsblecom'
-import { RecentOrdersTable } from './components/RecentOrdersTable'
 
 export default function Dashboard() {
   const [date, setDate] = React.useState<Date>()
@@ -216,50 +217,54 @@ export default function Dashboard() {
 
             <div className='grid grid-cols-1 gap-4 lg:grid-cols-7'>
               <Card className='col-span-1 shadow-md lg:col-span-4'>
-                <CardHeader className='flex items-center space-x-4 adddisplay'>
+                <CardHeader className='adddisplay flex items-center space-x-4'>
                   {' '}
                   {/* Added space between elements */}
-                     <div>
-                     <CardTitle className='text-lg md:text-xl'>
-                    Order Status
-                  </CardTitle>
-                     </div>
+                  <div>
+                    <CardTitle className='text-lg md:text-xl'>
+                      Order Status
+                    </CardTitle>
+                  </div>
                   {/* Select 1 */}
-                   <div className='addflex-data'>
-                   <Select>
-                    <SelectTrigger id=''>
-                      <SelectValue placeholder='All Categories' />
-                    </SelectTrigger>
-                    <SelectContent position='popper'>
-                      <SelectItem value='next'>Next.js</SelectItem>
-                      <SelectItem value='sveltekit'>SvelteKit</SelectItem>
-                      <SelectItem value='astro'>Astro</SelectItem>
-                      <SelectItem value='nuxt'>Nuxt.js</SelectItem>
-                    </SelectContent>
-                  </Select>
-                   <Popover>
-                    <PopoverTrigger asChild>
-                      <Button
-                        variant={'outline'}
-                        className={cn(
-                          'w-[140px] justify-start text-left font-normal',
-                          !date && 'text-muted-foreground'
-                        )}
-                      >
-                        <CalendarIcon />
-                        {date ? format(date, 'PPP') : <span>Pick a date</span>}
-                      </Button>
-                    </PopoverTrigger>
-                    <PopoverContent className='w-auto p-0' align='start'>
-                      <Calendar
-                        mode='single'
-                        selected={date}
-                        onSelect={setDate}
-                        initialFocus
-                      />
-                    </PopoverContent>
-                  </Popover>
-                   </div>
+                  <div className='addflex-data'>
+                    <Select>
+                      <SelectTrigger id=''>
+                        <SelectValue placeholder='All Categories' />
+                      </SelectTrigger>
+                      <SelectContent position='popper'>
+                        <SelectItem value='next'>Next.js</SelectItem>
+                        <SelectItem value='sveltekit'>SvelteKit</SelectItem>
+                        <SelectItem value='astro'>Astro</SelectItem>
+                        <SelectItem value='nuxt'>Nuxt.js</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <Button
+                          variant={'outline'}
+                          className={cn(
+                            'w-[140px] justify-start text-left font-normal',
+                            !date && 'text-muted-foreground'
+                          )}
+                        >
+                          <CalendarIcon />
+                          {date ? (
+                            format(date, 'PPP')
+                          ) : (
+                            <span>Pick a date</span>
+                          )}
+                        </Button>
+                      </PopoverTrigger>
+                      <PopoverContent className='w-auto p-0' align='start'>
+                        <Calendar
+                          mode='single'
+                          selected={date}
+                          onSelect={setDate}
+                          initialFocus
+                        />
+                      </PopoverContent>
+                    </Popover>
+                  </div>
                 </CardHeader>
 
                 <CardContent className='pl-2'>
@@ -315,8 +320,6 @@ export default function Dashboard() {
               </Card>
             </div>
 
-
-
             <div className='grid grid-cols-1 gap-4 lg:grid-cols-7'>
               <Card className='col-span-1 lg:col-span-4'>
                 <CardHeader>
@@ -334,19 +337,78 @@ export default function Dashboard() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                <TableDemo />
+                  <TableDemo />
                 </CardContent>
               </Card>
             </div>
 
-
-
-
+            <TopSellingPro />
 
             <div className='grid grid-cols-1 gap-4 lg:grid-cols-7'>
               <Card className='col-span-1 lg:col-span-4'>
-                <CardHeader>
-                  <CardTitle>Overview</CardTitle>
+                {/* <CardHeader >
+                  <Tabs defaultValue='account' className='w-[400px]'>
+                    <TabsList>
+                      <TabsTrigger value='account'>Revenue</TabsTrigger>
+                      <TabsTrigger value='password'>Orders</TabsTrigger>
+                      <TabsTrigger value='password'>Customers</TabsTrigger>
+                    </TabsList>
+                  </Tabs>
+                </CardHeader> */}
+                 <CardHeader className='adddisplay flex items-center space-x-4'>
+                  {' '}
+                  {/* Added space between elements */}
+                  <div>
+                  <CardHeader >
+                  <Tabs defaultValue='Revenue' className='w-[400px]'>
+                    <TabsList>
+                      <TabsTrigger value='Revenue'>Revenue</TabsTrigger>
+                      <TabsTrigger value='Orders'>Orders</TabsTrigger>
+                      <TabsTrigger value='Customers'>Customers</TabsTrigger>
+                    </TabsList>
+                  </Tabs>
+                </CardHeader>
+                  </div>
+                  {/* Select 1 */}
+                  <div className='addflex-data'>
+                    <Select >
+                      <SelectTrigger id=''>
+                        <SelectValue placeholder='All Categories' />
+                      </SelectTrigger>
+                      <SelectContent position='popper'>
+                        <SelectItem value='next'>Next.js</SelectItem>
+                        <SelectItem value='sveltekit'>SvelteKit</SelectItem>
+                        <SelectItem value='astro'>Astro</SelectItem>
+                        <SelectItem value='nuxt'>Nuxt.js</SelectItem>
+                      </SelectContent>
+                    </Select>
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <Button
+                          variant={'outline'}
+                          className={cn(
+                            'w-[80px] justify-start text-left font-normal',
+                            !date && 'text-muted-foreground'
+                          )}
+                        >
+                          <CalendarIcon />
+                          {date ? (
+                            format(date, 'PPP')
+                          ) : (
+                            <span>2023</span>
+                          )}
+                        </Button>
+                      </PopoverTrigger>
+                      <PopoverContent className='w-auto p-0' align='start'>
+                        <Calendar
+                          mode='single'
+                          selected={date}
+                          onSelect={setDate}
+                          initialFocus
+                        />
+                      </PopoverContent>
+                    </Popover>
+                  </div>
                 </CardHeader>
                 <CardContent className='pl-2'>
                   <Overview />

@@ -42,8 +42,8 @@ export function TeamSwitcher({
               </div>
               <div className='grid flex-1 text-left text-sm leading-tight'>
                <div className='roww'>
-               <span className='truncate font-semibold'>
-                Truck Grear
+               <span className='truncate font-semibold busness-style'>
+                Truck Grear <span>Business</span>
                 </span>
                 <span className='truncate font-semibold'>
                 <p>Changes Status</p>
