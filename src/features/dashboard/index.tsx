@@ -46,6 +46,8 @@ import { RecentOrdersTable } from './components/RecentOrdersTable'
 import { TopSellingPro } from './components/TopSellingPro'
 import { Overview } from './components/overview'
 import { RecentSales } from './components/recent-sales'
+import RecentActivities from './components/RecentActivities'
+
 
 export default function Dashboard() {
   const [date, setDate] = React.useState<Date>()
@@ -109,7 +111,7 @@ export default function Dashboard() {
           </div>
           <TabsContent value='overview' className='space-y-4'>
             <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-5'>
-              <Card>
+              <Card className='main-card_gray bg-gray-100'>
                 <CardContent className='cart-image'>
                   {/* <div className='text-2xl font-bold'>$45,231.89</div> */}
                   <div>
@@ -122,7 +124,7 @@ export default function Dashboard() {
                     <h3>123</h3>
                   </div>
                 </CardContent>
-                <CardFooter className='busness-padding flex justify-between'>
+                <CardFooter className='flex justify-between items-center bg-white rounded-b-xl px-4 py-2'>
                   <img src={IconMainf} />
                   <CardContent className='footer-text'>
                     From The Last Month
@@ -131,7 +133,7 @@ export default function Dashboard() {
                 </CardFooter>
               </Card>
 
-              <Card>
+              <Card className='main-card_gray bg-gray-100'>
                 <CardContent className='cart-image'>
                   {/* <div className='text-2xl font-bold'>$45,231.89</div> */}
                   <div>
@@ -142,7 +144,7 @@ export default function Dashboard() {
                     <h3>123</h3>
                   </div>
                 </CardContent>
-                <CardFooter className='busness-padding flex justify-between'>
+                <CardFooter className='flex justify-between items-center bg-white rounded-b-xl px-4 py-2'>
                   <img src={TokenIconf} />
                   <CardContent className='footer-text'>
                     From The Last Month
@@ -150,7 +152,7 @@ export default function Dashboard() {
                   {/* <img src={IconMainf}/> */}
                 </CardFooter>
               </Card>
-              <Card>
+              <Card className='main-card_gray bg-gray-100'>
                 <CardContent className='cart-image'>
                   {/* <div className='text-2xl font-bold'>$45,231.89</div> */}
                   <div>
@@ -163,7 +165,7 @@ export default function Dashboard() {
                     <h3>123</h3>
                   </div>
                 </CardContent>
-                <CardFooter className='busness-padding flex justify-between'>
+                <CardFooter className='flex justify-between items-center bg-white rounded-b-xl px-4 py-2'>
                   <img src={IconMainf} />
                   <CardContent className='footer-text'>
                     From The Last Month
@@ -171,7 +173,7 @@ export default function Dashboard() {
                   {/* <img src={IconMainf}/> */}
                 </CardFooter>
               </Card>
-              <Card>
+              <Card className='main-card_gray bg-gray-100'>
                 <CardContent className='cart-image'>
                   {/* <div className='text-2xl font-bold'>$45,231.89</div> */}
                   <div>
@@ -184,7 +186,7 @@ export default function Dashboard() {
                     <h3>123</h3>
                   </div>
                 </CardContent>
-                <CardFooter className='busness-padding flex justify-between'>
+                <CardFooter className='flex justify-between items-center bg-white rounded-b-xl px-4 py-2'>
                   <img src={IconMainf} />
                   <CardContent className='footer-text'>
                     From The Last Month
@@ -192,7 +194,7 @@ export default function Dashboard() {
                   {/* <img src={IconMainf}/> */}
                 </CardFooter>
               </Card>
-              <Card>
+              <Card className='main-card_gray bg-gray-100'>
                 <CardContent className='cart-image'>
                   {/* <div className='text-2xl font-bold'>$45,231.89</div> */}
                   <div>
@@ -205,7 +207,7 @@ export default function Dashboard() {
                     <h3>123</h3>
                   </div>
                 </CardContent>
-                <CardFooter className='busness-padding flex justify-between'>
+                <CardFooter className='flex justify-between items-center bg-white rounded-b-xl px-4 py-2'>
                   <img src={IconMainf} />
                   <CardContent className='footer-text'>
                     From The Last Month
@@ -222,7 +224,7 @@ export default function Dashboard() {
                   {/* Added space between elements */}
                   <div>
                     <CardTitle className='text-lg md:text-xl'>
-                      Order Status
+                    Order Status
                     </CardTitle>
                   </div>
                   {/* Select 1 */}
@@ -251,7 +253,7 @@ export default function Dashboard() {
                           {date ? (
                             format(date, 'PPP')
                           ) : (
-                            <span>Pick a date</span>
+                            <span>2023</span>
                           )}
                         </Button>
                       </PopoverTrigger>
@@ -315,7 +317,8 @@ export default function Dashboard() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <RecentSales />
+                  <RecentActivities />
+                  {/* <RecentSales /> */}
                 </CardContent>
               </Card>
             </div>

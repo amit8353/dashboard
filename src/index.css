@@ -279,3 +279,11 @@ padding-bottom: 2px;
 padding-left: 8px;
 
 }
+.my-plush{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.main-card_gray{
+  padding: 10px 0px 1px 0px;
+}

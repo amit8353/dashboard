@@ -1,15 +1,10 @@
-import * as React from 'react'
+import * as React from 'react';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth'
 import CallIcon from '@mui/icons-material/Call'
 import EmailIcon from '@mui/icons-material/Email'
 import MarkUnreadChatAltIcon from '@mui/icons-material/MarkUnreadChatAlt'
-import Avatar from '@mui/material/Avatar'
-import Divider from '@mui/material/Divider'
-import List from '@mui/material/List'
-import ListItem from '@mui/material/ListItem'
-import ListItemAvatar from '@mui/material/ListItemAvatar'
-import ListItemText from '@mui/material/ListItemText'
-import Typography from '@mui/material/Typography'
+import { Plus } from 'lucide-react';
+import SaveIcon from '@mui/icons-material/Save';
 import { Button } from '@/components/ui/button'
 import {
   Card,
@@ -43,6 +38,12 @@ import { sidebarData } from './data/sidebar-data'
 
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+ 
+  const numbers=[
+    { country: 'US', number: '+1 344 434 4455' },
+    { country: 'US', number: '+1 344 434 4455' },
+  ]
+
   return (
     <Sidebar collapsible='icon' variant='floating' {...props}>
       <SidebarHeader>
@@ -70,7 +71,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             </div>
             <Separator orientation='vertical' />
             <div className='icon-show'>
-              <CalendarMonthIcon sx={{ width: 20, height: 20 }} />
+              <CalendarMonthIcon sx={{ width: 20, height: 20 }} />              
               <p>Calendar</p>
             </div>
           </div>
@@ -83,7 +84,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <CardHeader>
             <CardTitle className='business-de'>
               <span>Business Details</span>
-              <span><p>Save and Close</p></span> 
+              <span><p><SaveIcon sx={{ width: 15, height: 15 }} /> {" "}Save and Close
+              </p></span> 
             </CardTitle>
           
           </CardHeader>
@@ -93,9 +95,14 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           </div> */}
 
 
+
           <CardContent className='busness-padding'>
             <form>
               <div className='grid w-full items-center gap-4'>
+                 
+            
+
+
                 <div className='flex flex-col space-y-1.5'>
                   <Label htmlFor='name'>Account Name</Label>
                   <Input id='name' placeholder='TRUCK GREAR' />
@@ -104,6 +111,32 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   <Label htmlFor='name'>Email</Label>
                   <Input id='name' placeholder='Jillali@Onechanneladmin.Com' />
                 </div>
+
+                <div className="space-y-4">
+      <label className="my-plush block text-sm font-medium text-gray-700 mb-2">Phone Number  <button  className="text-blue-500 mt-2 flex items-center">
+        <Plus className="w-5 h-5 mr-1" />
+      </button></label>
+      {numbers.map((item, index) => (
+        <div key={index} className="flex items-center space-x-3">
+          <Select>
+            <SelectTrigger className="w-24">
+              <SelectValue placeholder={item.country} />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="US">US</SelectItem>
+              <SelectItem value="CA">CA</SelectItem>
+              <SelectItem value="IN">IN</SelectItem>
+            </SelectContent>
+          </Select>
+          <Input value={item.number} placeholder="Phone Number" className="flex-1" />
+          <Button variant="outline" className="text-red-500 border-red-500">
+            Remove
+          </Button>
+        </div>
+      ))}
+     
+       </div>
+
                 <div className='flex flex-col space-y-1.5'>
                   <Label htmlFor='name'>Contact Owner</Label>
                   <Select>
